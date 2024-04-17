@@ -3,7 +3,7 @@ from manim import *
 class Calculation(Scene):
     def construct(self):
 
-        center_circle = Circle(radius=0.5, color=PINK)
+        center_circle = Circle(radius=0.5)
         center_circle.set_fill(PINK, opacity=0.5)
 
         # Create a second circle that will orbit around the center circle
