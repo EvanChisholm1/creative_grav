@@ -30,8 +30,8 @@ class Gun(Scene):
 
         given = VGroup()
         given.add(
-            MathTex(r"v_1 = 0"),
-            MathTex(r"v_2 = 375\frac{m}{s}"),
+            MathTex(r"\vec{v_1} = 0"),
+            MathTex(r"\vec{v_2} = 375\frac{m}{s}"),
             MathTex(r"\vec{\Delta d} = 0.114m"),
             MathTex(r"r = \vec{\Delta d}"),
             MathTex(r"m_1 = 0.00745kg"),
