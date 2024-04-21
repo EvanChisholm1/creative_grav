@@ -26,3 +26,9 @@ class Collision(Scene):
         )
 
         self.wait(1)
+
+        given = VGroup(
+            MathTex(r"m_a = 60.0kg"),
+            MathTex(r"m_b = 70.0kg"),
+            MathTex(r"")
+        )
