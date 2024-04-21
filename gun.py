@@ -16,9 +16,11 @@ class Gun(Scene):
 
         f_ag_arrow = Arrow(start=3*LEFT, end = RIGHT)
 
-        f_ag_arrow_label = MathTex(r"\vec{F_{ag}}")
+        f_ag_arrow_label = MathTex(r"\vec{F_{ga}}")
         f_ag_arrow_label.shift(2 * LEFT + 0.5 * UP)
         self.play(Create(f_ag_arrow), Write(f_ag_arrow_label))
+
+        self.wait(22)
 
         n_up = 2
         self.play(
@@ -31,8 +33,8 @@ class Gun(Scene):
         given = VGroup()
         given.add(
             MathTex(r"\vec{v_1} = 0"),
-            MathTex(r"\vec{v_2} = 375\frac{m}{s}"),
-            MathTex(r"\vec{\Delta d} = 0.114m"),
+            MathTex(r"\vec{v_2} = 375\frac{m}{s} \text{[forward]}"),
+            MathTex(r"\vec{\Delta d} = 0.114m \text{[forward]}"),
             MathTex(r"r = \vec{\Delta d}"),
             MathTex(r"m_1 = 0.00745kg"),
             MathTex(r"m_2 = 1.00kg"),
@@ -42,12 +44,17 @@ class Gun(Scene):
         let_Ga_rep = Tex(r"let $G_a$ represent the artificial gravitational constant")
         let_Ga_rep.shift(3 * DOWN)
 
+        positive_dir = MathTex(r"\text{[forward]+ve}", font_size=30)
+
+        positive_dir.shift(3 * UP + 5 * LEFT)
+
         self.play(
             Write(given.arrange(DOWN, aligned_edge=LEFT).scale(0.75)),
-            Write(let_Ga_rep)
+            Write(let_Ga_rep),
+            Write(positive_dir)
         )
 
-        self.wait(1)
+        self.wait(29)
 
         self.play(
             given.animate.shift(5 * LEFT).scale(0.8),
@@ -92,7 +99,7 @@ class Gun(Scene):
         let_f_ga_rep = Tex(r"let $F_{ga}$ represent the force of artificial gravity")
         let_f_ga_rep.shift(3 * DOWN)
         self.play(Write(f_ga), Write(let_f_ga_rep))
-        self.wait(1)
+        self.wait(6)
 
         self.play(
             f_ga.animate.shift(5 * RIGHT + 2 * DOWN),
@@ -116,7 +123,7 @@ class Gun(Scene):
 
         simplified_f_ga_eq_f_net_equations = MathTex(r"G_a = \frac{\vec{a}r^2}{m_2}")
 
-        self.wait(1)
+        self.wait(2)
         self.play(
             Transform(f_ga_eq_f_net, simplified_f_ga_eq_f_net_equations)
         )
@@ -130,7 +137,7 @@ class Gun(Scene):
 
         self.wait(1)
 
-        calculated_f_ga_eq_f_net_equations = MathTex(r"G_a = 70312.5\frac{Nm^2}{kg}")
+        calculated_f_ga_eq_f_net_equations = MathTex(r"G_a = 70312.5\frac{Nm^2}{kg^2}")
 
         self.play(
             Transform(f_ga_eq_f_net, calculated_f_ga_eq_f_net_equations)
@@ -138,12 +145,14 @@ class Gun(Scene):
 
         self.wait(1)
 
-        conclusion = Tex(r"$\therefore$ the artificial gravitational constant between our acceleration and our bullet at 0.114m away from each other should be $70300\frac{Nm^2}{kg}$ to get the same force as a glock shooting a bullet.", font_size=24)
+        conclusion = Tex(r"$\therefore$ the artificial gravitational constant between our acceleration and our bullet at 0.114m away from each other should be $70300\frac{Nm^2}{kg^2}$ to get the same force as a glock shooting a bullet.", font_size=24)
         conclusion.shift(3 * DOWN)
 
         self.play(
             Write(conclusion)
         )
+        
+        self.wait(15)
 
 
         # f_ga = MathTex(r"\vec{F_{ga}} = \vec{F_{net}}")

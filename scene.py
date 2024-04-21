@@ -4,11 +4,11 @@ class Calculation(Scene):
     def construct(self):
 
         center_circle = Circle(radius=0.5)
-        center_circle.set_fill(PINK, opacity=0.5)
+        center_circle.set_fill(RED, opacity=0.5)
 
         # Create a second circle that will orbit around the center circle
         orbiting_circle = Circle(radius=0.2)
-        orbiting_circle.set_fill(PINK, opacity=0.5)
+        orbiting_circle.set_fill(RED, opacity=0.5)
         orbiting_circle.move_to(center_circle.get_center() + [3, 0, 0])
 
         self.play(Create(center_circle), Create(orbiting_circle), run_time=1)
@@ -32,10 +32,9 @@ class Calculation(Scene):
         self.wait(20)
         self.play(given.animate.shift(4 * LEFT))
 
-        fg = MathTex(r"\vec{F_{ag}}", font_size=48)
-
-        uni_grav_formula = MathTex(r"F_{ag} = \frac{G_Am_1m_2}{r^2}", font_size=36)
-        disclaimer = Tex(r"let $F_{ag}$ represent force of artificial gravity")
+        fg = MathTex(r"\vec{F_{ga}}", font_size=48)
+        uni_grav_formula = MathTex(r"F_{ga} = \frac{G_Am_1m_2}{r^2}", font_size=36)
+        disclaimer = Tex(r"let $F_{ga}$ represent force of artificial gravity")
         disclaimer.shift(3 * UP)
         self.play(Write(uni_grav_formula), Write(disclaimer), run_time=1)
         self.wait(10)
@@ -105,9 +104,9 @@ class Orbit(Scene):
             orbiting_circle.animate.shift(2 * RIGHT),
         )
 
-        fg = MathTex(r"\vec{F_{ag}}", font_size=48)
+        fg = MathTex(r"\vec{F_{ga}}", font_size=48)
         fg.shift(2 * LEFT)
-        uni_grav_formula = MathTex(r"\vec{F_{ag}} = \frac{Gm_1m_2}{r^2}", font_size=48)
+        uni_grav_formula = MathTex(r"\vec{F_{ga}} = \frac{Gm_1m_2}{r^2}", font_size=48)
         uni_grav_formula.shift(2 * LEFT)
 
         m1_label = MathTex(r"m_1", font_size=48)
@@ -126,6 +125,8 @@ class Orbit(Scene):
         self.play(
             Transform(fg, uni_grav_formula),
         )
+
+        self.wait(10)
         # self.remove_foreground_mobjects()
 
         
